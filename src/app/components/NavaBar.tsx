@@ -48,7 +48,7 @@ export default function NavaBar() {
               );
             })}
 
-            <button className="p-2 rounded-lg cursor-pointer hover:bg-gray-100 text-primary dark:hover:bg-gray-800 ">
+            <button className="p-2 rounded-lg cursor-pointer hover:bg-gray-100 text-white hover:text-primary dark:hover:bg-gray-800 ">
               {theme === "dark" ? (
                 <SunOutline className="w-5 h-5" />
               ) : (
