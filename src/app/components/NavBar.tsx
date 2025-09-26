@@ -12,7 +12,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function NavaBar() {
   const { theme, toggleTheme } = useTheme();
-  const [isMobileMenuOpen, SetIsMobileMenuOpen] = useState<boolean>(false);
+  const [isMobileMenuOpen, SetIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const toggleMobileMenu = () => {
     SetIsMobileMenuOpen((isMobileMenuOpen) => !isMobileMenuOpen);
