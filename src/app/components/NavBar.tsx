@@ -3,10 +3,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
-import { MoonOutline, SunOutline } from "heroicons-react";
+import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
+
 import { FaXmark } from "react-icons/fa6";
 import { HiBars3 } from "react-icons/hi2";
 import { useTheme } from "../context/ThemeContext";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function NavaBar() {
   const { theme, toggleTheme } = useTheme();
@@ -49,21 +51,25 @@ export default function NavaBar() {
               );
             })}
 
-            <button
+            <motion.button
               onClick={toggleTheme}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
               className="p-2 rounded-lg cursor-pointer hover:bg-gray-100 dark:text-white hover:text-primary dark:hover:bg-gray-800 "
             >
               {theme === "dark" ? (
-                <SunOutline className="w-5 h-5" />
+                <SunIcon className="w-5 h-5" />
               ) : (
-                <MoonOutline className="w-5 h-5" />
+                <MoonIcon className="w-5 h-5" />
               )}
-            </button>
+            </motion.button>
           </div>
 
           {/* Mobile Menu  button*/}
-          <button
+          <motion.button
             onClick={toggleMobileMenu}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
             className="md:hidden p-2 rounded-lg hover:bg-gray-100 hover:text-blue-800 dark:hover:bg-gray-800 cursor-pointer transition-colors"
           >
             {" "}
@@ -72,37 +78,54 @@ export default function NavaBar() {
             ) : (
               <HiBars3 className="h-6 w-6" />
             )}
-          </button>
+          </motion.button>
         </div>
         {/* mobile menu  */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden">
-            <div className="py-4 space-y-4">
-              {menuItems.map((items, index) => (
-                <div key={index}>
-                  <Link
-                    href={items.href}
-                    className="block p-2 hover:text-primary transition-colors"
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="md:hidden"
+            >
+              <div className="py-4 space-y-4">
+                {menuItems.map((items, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
                   >
-                    {items.label}
-                  </Link>
-                </div>
-              ))}
-              <div>
-                <button
-                  onClick={toggleTheme}
-                  className="flex items-center py-2 hover:text-primary transition-colors"
+                    <Link
+                      href={items.href}
+                      className="block p-2 hover:text-primary transition-colors"
+                    >
+                      {items.label}
+                    </Link>
+                  </motion.div>
+                ))}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: menuItems.length * 0.1 }}
                 >
-                  {theme === "dark" ? (
-                    <SunOutline className="w-5 h-5 mr-2" />
-                  ) : (
-                    <MoonOutline className="w-5 h-5 mr-2" />
-                  )}
-                </button>
+                  <button
+                    onClick={toggleTheme}
+                    className="flex items-center py-2 hover:text-primary  transition-colors"
+                  >
+                    {theme === "dark" ? (
+                      <SunIcon className="w-5 h-5" />
+                    ) : (
+                      <MoonIcon className="w-5 h-5" />
+                    )}
+                  </button>
+                </motion.div>
               </div>
-            </div>
-          </div>
-        )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   );
