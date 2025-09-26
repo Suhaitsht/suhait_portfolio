@@ -26,7 +26,8 @@ export default function Projects() {
             key={project.title}
             className="bg-white dark:bg-dark/50 rounded-lg shadow-md p-6"
             variants={fadeInUp}
-            {...cardHoverSmall}
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 100 }}
           >
             <div className="relative aspect-video mb-4 rounded-lg overflow-hidden">
               <Image
