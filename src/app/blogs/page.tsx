@@ -4,7 +4,7 @@ import { blogs } from "../contents/blog";
 import Link from "next/link";
 import { FaCalendarAlt, FaClock } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { fadeInUp, staggerContainer, cardHoverSmall } from "../utils/animation";
+import { fadeInUp, staggerContainer } from "../utils/animation";
 
 export default function Blogs() {
   return (
