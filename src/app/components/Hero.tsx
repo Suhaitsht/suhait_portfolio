@@ -80,13 +80,13 @@ export default function Hero() {
         >
           <Link
             href=""
-            className="bg-primary inline-block w-fit md:w-auto text-white px-8 py-3 rounded-lg  hover:bg-primary/70 transition-colors"
+            className="bg-primary inline-block w-full md:w-auto text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors"
           >
             View Projects
           </Link>
           <Link
             href=""
-            className="bg-gray-500  inline-block w-fit md:w-auto text-white-800 px-8 py-3 rounded-lg  hover:bg-gray-400 hover:text-white transition-colors"
+            className=" inline-block w-full bg-gray-500  md:w-auto text-gray-800 dark:text-white px-8 py-3 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
           >
             Contact Me
           </Link>
