@@ -7,7 +7,7 @@ import Link from "next/link";
 import { FaGithub } from "react-icons/fa6";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { cardHoverSmall, fadeInUp, staggerContainer } from "../utils/animation";
+import { fadeInUp, staggerContainer } from "../utils/animation";
 
 export default function Projects() {
   return (

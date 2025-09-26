@@ -6,7 +6,7 @@ import Link from "next/link";
 import { FaCalendarAlt } from "react-icons/fa";
 import { FaClock } from "react-icons/fa6";
 import { motion } from "framer-motion";
-import { cardHoverSmall, fadeInUp } from "../utils/animation";
+import { fadeInUp } from "../utils/animation";
 
 export default function Blogs() {
   return (

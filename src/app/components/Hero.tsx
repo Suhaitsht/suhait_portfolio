@@ -5,7 +5,7 @@ import React from "react";
 import Profile from "../../../public/sht2.jpg";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
-import { FaLinkedin, FaLinkedinIn } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { fadeIn, fadeInUp, scaleIn } from "../utils/animation";
 
